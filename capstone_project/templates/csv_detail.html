@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body{
+            background-color: #EFEEE7;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+    
+    <title>Prediction Forecast</title>
+</head>
+<body >
+    <h1>CSV Detail</h1>
+    <p>Uploaded at: {{ csv_file.uploaded_at }}</p>
+    <h2>Prediction Results:</h2>
+    {% if operating_revenues %}
+        <p>Mean Squared Error: {{ operating_revenues.mse }}</p>
+        <p>R^2 Score: {{ operating_revenues.r2 }}</p>
+    {% else %}
+        <p>No predictions to display.</p>
+    {% endif %}
+    
+    <h2>Model for Total Operating Expenditures</h2>
+    {% if operating_expenditures %}
+        <p>Mean Squared Error: {{ operating_expenditures.mse }}</p>
+        <p>R^2 Score: {{ operating_expenditures.r2 }}</p>
+    {% else %}
+        <p>No predictions to display.</p>
+    {% endif %}
+</body>
+</html>

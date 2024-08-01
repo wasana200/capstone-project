@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ontario Public Libraries</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F7F6F3;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            max-width: 50%;
+            margin: 0 auto;
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo-container img {
+            height: 50px;
+        }
+        .title {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .upload-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2em;
+        }
+        .upload-section label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .upload-section input[type="file"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .prediction-output {
+            margin-top: 20px;
+            font-style: italic;
+            color: #666;
+        }
+        .form{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .form > p > label{
+            display: none;
+        }
+        a{
+            all: unset;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>   
+    <div class="container">
+        <div class="logo-container">
+            <h1>Ontario Public Libraries</h1>
+        </div>
+        <h2 class="title"><a href="https://app.powerbi.com/view?r=eyJrIjoiZmEzNjBlM2UtNTgxNS00Yjc5LWIxYmItNWFkZGY5OWY5YjAyIiwidCI6ImEyODgyNDgzLTA3Y2MtNGJlZi1hZjFkLWFhZWU1ZGRkOTk0ZCJ9">PowerBI Dashboard</a></h2>
+        <div class="upload-section">
+        <!--<label for="file-upload">Upload CSV</label>-->
+            <form method="post" enctype="multipart/form-data" class="form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
