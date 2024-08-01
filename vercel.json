@@ -20,9 +20,7 @@
 
         }
 
-    ],
-    "functions": {
-    "maxLambdaSize": "50mb"
+    ]
   }
 
 }
